@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貓咪大戰爭介紹 - 帶領可愛貓咪征服世界</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        'cat-yellow': '#FFD700',
+                    },
+                    boxShadow: {
+                        'doodle': '6px 6px 0px 0px rgba(0,0,0,1)',
+                        'doodle-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .cat-bounce {
+            animation: bounce-slight 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce-slight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .doodle-border {
+            border: 4px solid #000;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* 模擬手繪不規則邊框 */
+        }
+        
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 4px;
+            bottom: -4px;
+            left: 0;
+            background-color: #FFD700;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="text-black font-sans antialiased overflow-x-hidden">
+
+    <header class="fixed top-0 w-full bg-white border-b-4 border-black z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <!-- 簡單的 CSS/SVG 貓頭 Icon -->
+                <div class="w-10 h-10 bg-black rounded-full relative group-hover:bg-cat-yellow transition-colors duration-300">
+                    <div class="absolute -top-2 left-0 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[16px] border-b-black group-hover:border-b-cat-yellow transition-colors duration-300 transform -rotate-12"></div>
+                    <div class="absolute -top-2 right-0 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[16px] border-b-black group-hover:border-b-cat-yellow transition-colors duration-300 transform rotate-12"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold w-full text-center tracking-tighter">
+                        =ω=
+                    </div>
+                </div>
+                <span class="text-xl md:text-2xl font-black tracking-wider">貓咪大戰爭介紹</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-6 font-bold text-lg">
+                <a href="#about" class="nav-link hover:text-cat-yellow transition-colors">關於遊戲</a>
+                <a href="#cats" class="nav-link hover:text-cat-yellow transition-colors">基礎貓咪</a>
+                <a href="#features" class="nav-link hover:text-cat-yellow transition-colors">遊戲特色</a>
+            </nav>
+
+            <!-- 手機版選單按鈕 (裝飾用，實務上可加上 JS 展開) -->
+            <button class="md:hidden text-2xl font-black focus:outline-none">
+                ≡
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-12">
+        <section id="about" class="max-w-6xl mx-auto px-4 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 space-y-6">
+                <div class="inline-block bg-cat-yellow text-black font-black px-4 py-1 border-2 border-black rounded-full text-sm mb-2 transform -rotate-2">
+                    全球下載突破 9000 萬！
+                </div>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight">
+                    噁心又可愛的<br>
+                    <span class="relative inline-block">
+                        <span class="relative z-10 text-white" style="-webkit-text-stroke: 2px black;">貓咪軍團</span>
+                        <span class="absolute bottom-1 left-0 w-full h-4 bg-cat-yellow -z-0 transform -rotate-1"></span>
+                    </span>
+                    來襲！
+                </h1>
+                <p class="text-lg font-bold leading-relaxed text-gray-800 bg-white p-6 doodle-border shadow-doodle">
+                    《貓咪大戰爭》是一款由 PONOS 開發的超現實策略塔防遊戲。玩家將指揮一群充滿個性、造型奇葩的貓咪，從台灣出發前往世界各地（甚至宇宙）展開侵略。只需簡單的點擊操作，就能體驗充滿深度的戰略樂趣！
+                </p>
+                <div class="pt-4">
+                    <a href="#cats" class="inline-block bg-black text-white font-black text-lg px-8 py-4 doodle-border hover:bg-cat-yellow hover:text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-doodle-hover shadow-doodle transition-all">
+                        認識貓咪軍團 ↓
+                    </a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 flex justify-center items-center">
+                <!-- 大型裝飾貓咪 -->
+                <div class="relative w-64 h-64 cat-bounce">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[8px_8px_0_rgba(0,0,0,1)]">
+                        <!-- 貓耳 -->
+                        <path d="M40 80 L30 20 L80 50 Z" fill="#fff" stroke="#000" stroke-width="8" stroke-linejoin="round"/>
+                        <path d="M160 80 L170 20 L120 50 Z" fill="#fff" stroke="#000" stroke-width="8" stroke-linejoin="round"/>
+                        <!-- 貓臉 -->
+                        <circle cx="100" cy="110" r="70" fill="#fff" stroke="#000" stroke-width="8"/>
+                        <!-- 眼睛 -->
+                        <circle cx="75" cy="100" r="6" fill="#000"/>
+                        <circle cx="125" cy="100" r="6" fill="#000"/>
+                        <!-- 嘴巴 -->
+                        <path d="M90 120 Q100 130 110 120" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                    <!-- 裝飾黃色星星 -->
+                    <div class="absolute text-cat-yellow text-4xl top-0 right-0 transform rotate-12 animate-pulse">★</div>
+                    <div class="absolute text-cat-yellow text-2xl bottom-10 -left-6 transform -rotate-12 animate-pulse">✦</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cats" class="max-w-6xl mx-auto px-4 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black inline-block relative">
+                    基礎貓咪介紹
+                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-2 bg-black"></div>
+                </h2>
+                <p class="mt-8 font-bold text-gray-600">一切侵略的起源，便宜又好用的初始部隊！</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 貓咪 Card -->
+                <div class="bg-white p-6 doodle-border shadow-doodle flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-40 w-full flex items-center justify-center mb-4 relative">
+                        <div class="absolute inset-0 bg-gray-100 rounded-xl -z-10 group-hover:bg-cat-yellow transition-colors duration-300"></div>
+                        <!-- 基礎貓咪 SVG -->
+                        <svg viewBox="0 0 100 100" class="h-28 w-28 group-hover:scale-110 transition-transform">
+                            <path d="M20 40 L15 15 L35 25 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <path d="M80 40 L85 15 L65 25 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <circle cx="50" cy="55" r="35" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <circle cx="40" cy="50" r="3" fill="#000"/><circle cx="60" cy="50" r="3" fill="#000"/>
+                            <path d="M47 60 Q50 65 53 60" fill="none" stroke="#000" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">貓咪 (Cat)</h3>
+                    <p class="font-bold text-gray-700">最基礎的貓咪。體力低但生產成本極低，能夠大量生產來淹沒敵人。</p>
+                </div>
+
+                <!-- 坦克貓 Card -->
+                <div class="bg-white p-6 doodle-border shadow-doodle flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-40 w-full flex items-center justify-center mb-4 relative">
+                        <div class="absolute inset-0 bg-gray-100 rounded-xl -z-10 group-hover:bg-cat-yellow transition-colors duration-300"></div>
+                        <!-- 坦克貓 SVG -->
+                        <svg viewBox="0 0 100 120" class="h-32 w-32 group-hover:scale-110 transition-transform">
+                            <path d="M25 30 L20 10 L40 20 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <path d="M75 30 L80 10 L60 20 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <rect x="20" y="25" width="60" height="85" rx="10" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <circle cx="40" cy="45" r="3" fill="#000"/><circle cx="60" cy="45" r="3" fill="#000"/>
+                            <path d="M47 55 Q50 60 53 55" fill="none" stroke="#000" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">坦克貓 (Tank Cat)</h3>
+                    <p class="font-bold text-gray-700">體力非常高的貓咪，攻擊力微乎其微，主要作為保護後排主力輸出的堅固肉盾。</p>
+                </div>
+
+                <!-- 戰鬥貓 Card -->
+                <div class="bg-white p-6 doodle-border shadow-doodle flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-40 w-full flex items-center justify-center mb-4 relative">
+                        <div class="absolute inset-0 bg-gray-100 rounded-xl -z-10 group-hover:bg-cat-yellow transition-colors duration-300"></div>
+                        <!-- 戰鬥貓 SVG -->
+                        <svg viewBox="0 0 120 100" class="h-28 w-32 group-hover:scale-110 transition-transform">
+                            <path d="M30 40 L25 15 L45 25 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <path d="M90 40 L95 15 L75 25 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <circle cx="60" cy="55" r="35" fill="#fff" stroke="#000" stroke-width="4"/>
+                            <!-- 憤怒的眼睛 -->
+                            <path d="M45 45 L55 50" stroke="#000" stroke-width="3"/><path d="M75 45 L65 50" stroke="#000" stroke-width="3"/>
+                            <circle cx="50" cy="52" r="2" fill="#000"/><circle cx="70" cy="52" r="2" fill="#000"/>
+                            <path d="M57 62 Q60 58 63 62" fill="none" stroke="#000" stroke-width="3"/>
+                            <!-- 小斧頭 -->
+                            <rect x="15" y="40" width="4" height="40" fill="#000" transform="rotate(-20 15 40)"/>
+                            <path d="M5 40 Q 15 30 25 40 Q 25 55 15 60 Q 5 55 5 40 Z" fill="#000" transform="rotate(-20 15 40)"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">戰鬥貓 (Axe Cat)</h3>
+                    <p class="font-bold text-gray-700">拿著小斧頭的戰鬥派貓咪。對於「紅色敵人」有特別強的戰鬥力！</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="max-w-6xl mx-auto px-4 py-20 border-t-4 border-black">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-black mb-6">
+                        <span class="bg-black text-white px-2 py-1 transform -skew-x-6 inline-block">為什麼好玩？</span>
+                    </h2>
+                    
+                    <!-- Feature 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="bg-cat-yellow border-2 border-black w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-xl font-black shadow-[2px_2px_0_0_#000]">1</div>
+                        <div>
+                            <h4 class="text-2xl font-black mb-2">超現實敵人與奇葩設定</h4>
+                            <p class="font-bold text-gray-700">狗、蛇、企鵝、猩猩，甚至是各種難以名狀的詭異生物... 面對充滿吐槽點的敵人，用更奇葩的貓咪反擊！</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="bg-cat-yellow border-2 border-black w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-xl font-black shadow-[2px_2px_0_0_#000]">2</div>
+                        <div>
+                            <h4 class="text-2xl font-black mb-2">無極限的進化系統</h4>
+                            <p class="font-bold text-gray-700">貓咪達到指定等級即可進化。第三階進化往往伴隨意想不到的大變形，從小貓變成肌肉猛男或巨大要塞？</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="flex items-start gap-4">
+                        <div class="bg-cat-yellow border-2 border-black w-12 h-12 flex items-center justify-center rounded-full flex-shrink-0 text-xl font-black shadow-[2px_2px_0_0_#000]">3</div>
+                        <div>
+                            <h4 class="text-2xl font-black mb-2">世界各地與宇宙關卡</h4>
+                            <p class="font-bold text-gray-700">打遍世界各國名勝古蹟，甚至突破天際進軍「未來篇」與「宇宙篇」，收集各地的寶物來強化軍團！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側視覺裝飾 -->
+                <div class="bg-black text-white p-8 doodle-border shadow-doodle transform rotate-2">
+                    <h3 class="text-3xl font-black mb-4 text-cat-yellow">遊戲核心玩法</h3>
+                    <ul class="space-y-4 font-bold text-lg">
+                        <li class="flex items-center gap-2"><span>💰</span> 累積金錢 (工作狂貓)</li>
+                        <li class="flex items-center gap-2"><span>🐾</span> 點擊生產貓咪</li>
+                        <li class="flex items-center gap-2"><span>🏰</span> 守護我方貓咪基地</li>
+                        <li class="flex items-center gap-2"><span>💥</span> 摧毀敵方主堡獲勝</li>
+                        <li class="flex items-center gap-2"><span>🔥</span> 危急時發射「貓咪砲」！</li>
+                    </ul>
+                    <div class="mt-8 text-center text-sm font-bold text-gray-400">
+                        * 簡單上手，策略無窮 *
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white py-8 border-t-4 border-black">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-black text-xl flex items-center gap-2">
+                <span class="text-cat-yellow">=^･ω･^=</span> 貓咪大戰爭 Fan Page
+            </div>
+            <div class="text-sm font-bold text-gray-400 text-center md:text-right">
+                <p>Made for fun. Not affiliated with PONOS.</p>
+                <p>純屬學校/個人作業展示練習使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滾動與簡單互動效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 為所有按鈕與連結加上點擊小動畫
+        const interactables = document.querySelectorAll('a, button');
+        interactables.forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
